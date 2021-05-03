@@ -33,6 +33,22 @@ void BubbleSortByArtaxiad(int size, int* array) {
     }
 }
 
+void Merge(int* array, int* array1, int* array2, int left, int middle, int right) {
+    int length1 = middle - left + 1;
+    int length2 = right - middle;
+    int index1 = 0;
+    int index2 = 0;
+        for (int i = left; i <= right; ++i) {
+            if (index1 < length1 && (index2 >= length2 || array1[index1] < array2[index2])) {
+                array[i] = array1[index1];
+                ++index1;
+            } else {
+                array[i] = array2[index2];
+                ++index2;
+                }
+        }
+}
+
 void MergeSortRecursivly(int* array, int left, int right) {
     int middle = (right + left) / 2;
     if (left < right) {
